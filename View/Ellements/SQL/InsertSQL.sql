@@ -1,15 +1,14 @@
 /* INSERT INTO LOCOMOTION*/
 INSERT INTO `locomotion` (`Locomotion_ID`, `Locomotion_Name`) VALUES 
-    ('1', 'Bus'),
-    ('2', 'Train'),
-    ('3', 'Foot'),
-    ('4', 'Cars'),
-    ('5', 'Carpooling'),
-    ('6', 'Plane'),
-    ('7', 'Submarine'),
-    ('8', 'Boat'),
-    ('9', 'Bike');
-
+    (1, 'Bus'),
+    (2, 'Train'),
+    (3, 'Foot'),
+    (4, 'Cars'),
+    (5, 'Carpooling'),
+    (6, 'Plane'),
+    (7, 'Submarine'),
+    (8, 'Boat'),
+    (9, 'Bike');
 /* INSERT INTO WORKDEPARTEMENT*/
 INSERT INTO `workdepartment` (`WorkDepartment_ID`, `WorkDepartment_Name`) VALUES
     (1, 'Urbanism'),
