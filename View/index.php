@@ -1,13 +1,27 @@
 <?php
-  session_start();
-  if(isset($_GET["error"])){
-      echo $_GET["error"] . " !";
-  }
 
-  isset($_SESSION["notok"]["name"]) ? $name = $_SESSION["notok"]["name"] : $name='';
-  isset($_SESSION["notok"]["email"]) ? $email = $_SESSION["notok"]["email"] : $email='';
-  isset($_SESSION["notok"]["naiss"]) ? $naissance = $_SESSION["notok"]["naiss"] : $naissance='';
-  isset($_SESSION["notok"]["pseudo"]) ? $pseudo = $_SESSION["notok"]["pseudo"] : $pseudo='';
+  /* SESSION AND ERROR */
+    session_start();
+    
+    if(isset($_GET["error"])){
+        echo $_GET["error"] . " !";
+    }
+
+  /* INCLUDE */
+    include('../Model/read.php');
+
+  /* Load All Data For Forms */
+    $postalCode = TakeAllPostalCode();
+    $locomotion = TakeAllLocomotion();
+    $workDepartement = TakeAllWorkDepartement();
+    $activity = TakeAllActivity();
+
+  /* VAR DUMP FOR CHECK IF ALL QUERY TO DATABASE IS CORRECT */
+  /* ALL IS ARRAY */
+    var_dump($postalCode[0]);
+    var_dump($locomotion[0]);
+    var_dump($workDepartement[0]);
+    var_dump($activity[0]);
 ?>
 
 
@@ -16,56 +30,49 @@
   <form action="../controller/signup.php" method="post">
     <p>
       <label for="name">Name : </label>
-      <input type="text" id="name" name="name" placeholder="Your Name">
+      <input type="text" id="name" name="name" placeholder="Your Name" require>
     </p> 
     
     <p>
       <label for="firstname">First Name : </label>
-      <input type="text" id="firstname" name="firstname" placeholder="Your First Name">
+      <input type="text" id="firstname" name="firstname" placeholder="Your First Name" require>
     </p>
 
     <p>
       <label for="mail">Mail: </label>
-      <input type="email" id="mail" name="mail" placeholder="mail@mail.be">
+      <input type="email" id="mail" name="mail" placeholder="mail@mail.be" require>
     </p>
 
     <p>
       <label for="postalcode">Postal Code : </label>
       <select id="postalcode" name="postalcode">
-        <option value="0">Bruxelles</option>
-        <option value="1">Namur</option>
-        <option value="2">Beauvechain</option>
+          <?php foreach($postalCode as $value){?>
+              <option value="<?php echo $value['PostalCode_ID']; ?>"><?php echo $value['PostalCode_Name'];}?></option>
       </select>
-      
     </p>
 
     <p>
-      <label for="locomation">Locomotion : </label>
+      <label for="locomotion">locomotion : </label>
       <select id="locomotion" name="locomotion">
-        <option value="0">Cars</option>
-        <option value="1">Public Transportation</option>
-        <option value="2">Foot</option>
+          <?php foreach($locomotion as $value){?>
+              <option value="<?php echo $value['Locomotion_ID']; ?>"><?php echo $value['Locomotion_Name'];}?></option>
       </select>
-
     </p>
 
     <p>
       <label for="departement">Work Departement : </label>
       <select id="departement" name="departement">
-        <option value="0">Urbanism</option>
-        <option value="1">Coach</option>
-        <option value="2">Storage Occupation</option>
+          <?php foreach($workDepartement as $value){?>
+              <option value="<?php echo $value['WorkDepartment_ID']; ?>"><?php echo $value['WorkDepartment_Name'];}?></option>
       </select>
-
     </p>
 
     <p>
       <label for="activity">Selected Activity : </label>
       <select id="activity" name="activity">
-        <option value="0">Kitchen Workshop</option>
-        <option value="1">Forest Workshop</option>
+          <?php foreach($activity as $value){?>
+          <option value="<?php echo $value['Activity_ID']; ?>"><?php echo $value['Activity_Name'];}?></option>
       </select>
-
     </p>
 
     <p>
@@ -75,6 +82,14 @@
 
     <input type="submit" value="S'inscrire">
   </form>
+
+
+
+
+
+
+
+
 
 
 <h2>Login</h2>
@@ -91,4 +106,3 @@
 
     <input type="submit" value="Connexion" /><br>
 </form>
-
