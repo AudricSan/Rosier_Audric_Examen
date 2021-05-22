@@ -1,26 +1,13 @@
 <?php
-/*
-    session_start();
-    if(isset($_GET["error"])){
-        echo $_GET["error"] . " !";
-    }
+  session_start();
+  if(isset($_GET["error"])){
+      echo $_GET["error"] . " !";
+  }
 
-    isset($_SESSION["notok"]["name"]) ? $name = $_SESSION["notok"]["name"] : $name='';
-    isset($_SESSION["notok"]["email"]) ? $email = $_SESSION["notok"]["email"] : $email='';
-    isset($_SESSION["notok"]["naiss"]) ? $naissance = $_SESSION["notok"]["naiss"] : $naissance='';
-    isset($_SESSION["notok"]["pseudo"]) ? $pseudo = $_SESSION["notok"]["pseudo"] : $pseudo='';
-
-*/
-
-$name = 0;
-$firstname = 0;
-$mail = 0;
-$postalcode = 0;
-$locomotion = 0;
-$departement = 0;
-$activity = 0;
-$eating = 0;
-
+  isset($_SESSION["notok"]["name"]) ? $name = $_SESSION["notok"]["name"] : $name='';
+  isset($_SESSION["notok"]["email"]) ? $email = $_SESSION["notok"]["email"] : $email='';
+  isset($_SESSION["notok"]["naiss"]) ? $naissance = $_SESSION["notok"]["naiss"] : $naissance='';
+  isset($_SESSION["notok"]["pseudo"]) ? $pseudo = $_SESSION["notok"]["pseudo"] : $pseudo='';
 ?>
 
 
@@ -29,52 +16,61 @@ $eating = 0;
   <form action="../controller/signup.php" method="post">
     <p>
       <label for="name">Name : </label>
-      <input type="text" id="name" name="name" value=<?php echo $name; ?>>
+      <input type="text" id="name" name="name" placeholder="Your Name">
     </p> 
     
     <p>
       <label for="firstname">First Name : </label>
-      <input type="text" id="firstname" name="firstname" value=<?php echo $firstname; ?>>
+      <input type="text" id="firstname" name="firstname" placeholder="Your First Name">
     </p>
 
     <p>
       <label for="mail">Mail: </label>
-      <input type="email" id="mail" name="mail" placeholder="mail@mail.be" value=<?php echo $mail; ?>>
+      <input type="email" id="mail" name="mail" placeholder="mail@mail.be">
     </p>
 
     <p>
       <label for="postalcode">Postal Code : </label>
-      <input type="text" id="postalcode" name="postalcode" value=<?php echo $postalcode; ?>>
+      <select id="postalcode" name="postalcode">
+        <option value="0">Bruxelles</option>
+        <option value="1">Namur</option>
+        <option value="2">Beauvechain</option>
+      </select>
+      
     </p>
 
     <p>
       <label for="locomation">Locomotion : </label>
-      <input type="text" id="locomotion" name="locomotion" value=<?php echo $locomotion; ?>>
+      <select id="locomotion" name="locomotion">
+        <option value="0">Cars</option>
+        <option value="1">Public Transportation</option>
+        <option value="2">Foot</option>
+      </select>
+
     </p>
 
     <p>
       <label for="departement">Work Departement : </label>
-      <input type="text" id="departement" name="departement" value=<?php echo $departement; ?>>
+      <select id="departement" name="departement">
+        <option value="0">Urbanism</option>
+        <option value="1">Coach</option>
+        <option value="2">Shortage Occupation</option>
+      </select>
+
     </p>
 
     <p>
       <label for="activity">Selected Activity : </label>
-      <input type="text" id="activity" name="activity" value=<?php echo $activity; ?>>
+      <select id="postalcode" name="postalcode">
+        <option value="0">Kitchen Workshop</option>
+        <option value="1">Forest Workshop</option>
+      </select>
+
     </p>
 
     <p>
       <label for="eating">Will you be attending the evening dinner?</label>
-      <input type="email" id="eating" name="eating" value=<?php echo $eating; ?>>
-    </p>
-
-    <p>
-      <label for="password">Password: </label>
-      <input type="password" id="password" name="password"/>
-    </p>
-
-    <p>
-      <label for="password2">Confrim Password: </label>
-      <input type="password" id="password2" name="password2"/>
+      <input type="checkbox" id="eating" name="eating">
     </p>
 
     <input type="submit" value="S'inscrire">
@@ -84,8 +80,8 @@ $eating = 0;
 <h2>Login</h2>
 <form action="../controller/login.php" method="post">
     <p>
-    <label for="email">Mail : </label>
-    <input type="email"  name="email" />
+    <label for="login">Login : </label>
+    <input type="text"  name="login" />
     </p>
 
     <p>
