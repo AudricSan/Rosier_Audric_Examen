@@ -54,14 +54,14 @@
       <select id="departement" name="departement">
         <option value="0">Urbanism</option>
         <option value="1">Coach</option>
-        <option value="2">Shortage Occupation</option>
+        <option value="2">Storage Occupation</option>
       </select>
 
     </p>
 
     <p>
       <label for="activity">Selected Activity : </label>
-      <select id="postalcode" name="postalcode">
+      <select id="activity" name="activity">
         <option value="0">Kitchen Workshop</option>
         <option value="1">Forest Workshop</option>
       </select>
