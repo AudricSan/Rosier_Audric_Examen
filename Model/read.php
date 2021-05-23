@@ -89,4 +89,24 @@
         
         return $result;
     }
+
+    function TakeAdminInfo($login){
+        include('../model/connection.php');   
+        
+        $query = "SELECT * FROM admin where Admin_Login = :login";       
+        $query_params = array(':login' => $login);            
+        
+        try{
+            $stmt = $db->prepare($query);        
+            $result = $stmt->execute($query_params);  
+        }
+        
+        catch(PDOException $ex){
+            die("Failed query : " . $ex->getMessage());
+        }
+        
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);   
+        
+        return $result;
+    }
 ?>
