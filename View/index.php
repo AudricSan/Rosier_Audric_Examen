@@ -4,7 +4,7 @@
     session_start();
     
     if(isset($_GET["error"])){
-        echo $_GET["error"] . " !";
+        echo "<p style=\"color: red; font-size: 20px;\">" . $_GET["error"] . "</p>";
     }
 
   /* INCLUDE */
