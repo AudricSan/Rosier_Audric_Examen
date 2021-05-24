@@ -4,3 +4,9 @@ body{
     font-family: Quicksand;
     font-weight: 400;
 }
+
+.error{
+    font-family: Quicksand;
+    font-weight: 300;
+    color: red;
+}
