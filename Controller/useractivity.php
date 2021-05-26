@@ -9,6 +9,12 @@
         $error = '';
         $path = 'index.php';
 
+    /* something wrong ? */
+        if(!isset($_POST)){
+            $error = 'Not filled the form';
+            goto end;
+        }
+
     /* redefining variables in post */  
         $name = $_POST['name'];
         $firstname = $_POST['firstname'];
@@ -55,8 +61,31 @@
         var_dump($department);
         var_dump($activity);
         var_dump($eating);
+
+    /* Check if User Exist */
+        $TSI = TakeStaffInfo($name);
+
+        if (!empty($TSI)){
+            $error= "User already Exist";
+            goto end;
+        }
     
     /* insert User un DB */
         insertStaff($name, $firstname, $mail, $postalcode, $locomotion, $department, $activity, $eating);
-        
+
+        /* Definite $PATH */
+        $path = 'user.php';
+
+        var_dump($name);
+        var_dump($firstname);
+        var_dump($mail);
+        var_dump($postalcode);
+        var_dump($locomotion);
+        var_dump($department);
+        var_dump($activity);
+        var_dump($eating);
+
+    /* Go to END to have only one "header location" */
+        end:
+        header("Location: ../view/$path?error=$error");   
 ?>
