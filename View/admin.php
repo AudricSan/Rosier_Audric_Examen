@@ -11,17 +11,11 @@
     include('../Model/read.php');
 
   /* Load All Data For TABLE */
-    $postalCode = TakeAllPostalCode();
-    $locomotion = TakeAllLocomotion();
-    $workDepartement = TakeAllWorkDepartement();
-    $activity = TakeAllActivity();
+    $staff = TakeAllStaff();
 
   /* VAR DUMP FOR CHECK IF ALL QUERY TO DATABASE IS CORRECT */
   /* ALL IS ARRAY */
-    var_dump($postalCode[0]);
-    var_dump($locomotion[0]);
-    var_dump($workDepartement[0]);
-    var_dump($activity[0]);
+    var_dump($staff);
 ?>
 
 <!DOCTYPE HTML>
@@ -30,9 +24,9 @@
   <head>
     <!--Integration CSS-->
       <link rel="stylesheet" href="Ellements/CSS/style.css">
-
   </head>
 
   <body>
+    
   </body>
 </html>
