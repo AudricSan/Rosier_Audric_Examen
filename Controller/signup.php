@@ -7,8 +7,9 @@
 
         /*var_dump($_POST);*/
         $UtiNom = $_POST['nom'];
-        unset($_POST['nom']);
         $UtiDateNaiss = $_POST['dateNais'];
+
+        unset($_POST['nom']);
         unset($_POST['dateNais']);
 
         if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
