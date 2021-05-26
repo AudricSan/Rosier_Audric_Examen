@@ -110,11 +110,11 @@
         return $result;
     }
 
-    function TakeStaffInfo($login){
+    function TakeStaffInfo($name){
         include('../model/connection.php');   
         
-        $query = "SELECT * FROM Staff where Staff_Login = :login";       
-        $query_params = array(':login' => $login);            
+        $query = "SELECT * FROM Staff where Staff_Name = :name";       
+        $query_params = array(':name' => $name);            
         
         try{
             $stmt = $db->prepare($query);        
