@@ -36,7 +36,7 @@
   <body>
     <h1>The staff day!</h1>
     <h2>Registration </h2>
-      <form action="../controller/signup.php" method="post">
+      <form action="../controller/useractivity.php" method="post">
 
         <p class="Name">
           <label for="name">Name : </label>
@@ -69,9 +69,9 @@
           </select>
         </p>
 
-        <p class="Departement">
-          <label for="departement">Work Departement : </label>
-          <select id="departement" name="departement">
+        <p class="Department">
+          <label for="department">Work department : </label>
+          <select id="department" name="department">
               <?php foreach($workDepartement as $value){?>
                   <option value="<?php echo $value['WorkDepartment_ID']; ?>"><?php echo $value['WorkDepartment_Name'];}?></option>
           </select>
