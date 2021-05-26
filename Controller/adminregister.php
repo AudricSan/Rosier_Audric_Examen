@@ -6,7 +6,7 @@
         include('../model/function.php');
 
     /* set error */
-        $error = 0;
+        $error = '';
         $path = 'index.php';
 
     /* redefining variables in post */  

@@ -109,4 +109,24 @@
         
         return $result;
     }
+
+    function TakeStaffInfo($name){
+        include('../model/connection.php');   
+        
+        $query = "SELECT * FROM Staff where Staff_Name = :name";       
+        $query_params = array(':name' => $name);            
+        
+        try{
+            $stmt = $db->prepare($query);        
+            $result = $stmt->execute($query_params);  
+        }
+        
+        catch(PDOException $ex){
+            die("Failed query : " . $ex->getMessage());
+        }
+        
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);   
+        
+        return $result;
+    }
 ?>

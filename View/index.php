@@ -1,5 +1,4 @@
 <?php
-
   /* SESSION AND ERROR */
     session_start();
     
@@ -36,21 +35,21 @@
   <body>
     <h1>The staff day!</h1>
     <h2>Registration </h2>
-      <form action="../controller/signup.php" method="post">
+      <form action="../controller/useractivity.php" method="post">
 
         <p class="Name">
           <label for="name">Name : </label>
-          <input type="text" id="name" name="name" placeholder="Your Name" require>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
         </p> 
         
         <p class="FirstName">
           <label for="firstname">First Name : </label>
-          <input type="text" id="firstname" name="firstname" placeholder="Your First Name" require>
+          <input type="text" id="firstname" name="firstname" placeholder="Your First Name" required>
         </p>
 
         <p class="Mail">
           <label for="mail">Mail: </label>
-          <input type="email" id="mail" name="mail" placeholder="mail@mail.be" require>
+          <input type="email" id="mail" name="mail" placeholder="mail@mail.be" required>
         </p>
 
         <p class="PostalCode">
@@ -69,9 +68,9 @@
           </select>
         </p>
 
-        <p class="Departement">
-          <label for="departement">Work Departement : </label>
-          <select id="departement" name="departement">
+        <p class="Department">
+          <label for="department">Work department : </label>
+          <select id="department" name="department">
               <?php foreach($workDepartement as $value){?>
                   <option value="<?php echo $value['WorkDepartment_ID']; ?>"><?php echo $value['WorkDepartment_Name'];}?></option>
           </select>
@@ -97,16 +96,15 @@
     <form action="../controller/login.php" method="post">
         <p>
         <label for="login">Login : </label>
-        <input type="text"  name="login" />
+        <input type="text"  name="login" required/>
         </p>
 
         <p>
         <label for="pass">Password : </label>
-        <input type="password"  name="pass"/>
+        <input type="password"  name="pass" required/>
         </p>
 
         <input type="submit" value="Connexion" /><br>
     </form>
-
   </body>
 </html>
