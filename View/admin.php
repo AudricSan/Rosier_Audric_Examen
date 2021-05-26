@@ -1,6 +1,7 @@
 <?php
 
   /* SESSION AND ERROR */
+  /* Start Session and Include Read Files */
     session_start();
     
     if(isset($_GET["error"])){
