@@ -40,17 +40,17 @@
 
         <p class="Name">
           <label for="name">Name : </label>
-          <input type="text" id="name" name="name" placeholder="Your Name" require>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
         </p> 
         
         <p class="FirstName">
           <label for="firstname">First Name : </label>
-          <input type="text" id="firstname" name="firstname" placeholder="Your First Name" require>
+          <input type="text" id="firstname" name="firstname" placeholder="Your First Name" required>
         </p>
 
         <p class="Mail">
           <label for="mail">Mail: </label>
-          <input type="email" id="mail" name="mail" placeholder="mail@mail.be" require>
+          <input type="email" id="mail" name="mail" placeholder="mail@mail.be" required>
         </p>
 
         <p class="PostalCode">
@@ -97,16 +97,15 @@
     <form action="../controller/login.php" method="post">
         <p>
         <label for="login">Login : </label>
-        <input type="text"  name="login" />
+        <input type="text"  name="login" required/>
         </p>
 
         <p>
         <label for="pass">Password : </label>
-        <input type="password"  name="pass"/>
+        <input type="password"  name="pass" required/>
         </p>
 
         <input type="submit" value="Connexion" /><br>
     </form>
-
   </body>
 </html>
