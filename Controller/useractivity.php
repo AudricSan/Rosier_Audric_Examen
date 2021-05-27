@@ -71,21 +71,34 @@
         }
     
     /* insert User un DB */
-        insertStaff($name, $firstname, $mail, $postalcode, $locomotion, $department, $activity, $eating);
+        insertStaff($name, $firstname, $mail, $postalcode, $locomotion, $department, $eating);
+
+        /* Unset not use variable */
+            unset($firstname);
+            unset($mail);
+            unset($postalcode);
+            unset($locomotion);
+            unset($department);
+            unset($eating);
+
+    /* Take The ID of User Just Add in DB */
+        $staffid = TakeStaffInfo($name);    
+        $staffid = $staffid[0];
+        $staffid = $staffid['Staff_ID'];
+
+    /* Add Activity Info in DB */
+        insertStaffActivity($staffid, $activity);
+
+
+        /* Unset not use variable */
+            unset($name);
+            unset($activity);
+            unset($staffid);
 
         /* Definite $PATH */
         $path = 'user.php';
 
-        var_dump($name);
-        var_dump($firstname);
-        var_dump($mail);
-        var_dump($postalcode);
-        var_dump($locomotion);
-        var_dump($department);
-        var_dump($activity);
-        var_dump($eating);
-
     /* Go to END to have only one "header location" */
         end:
-        header("Location: ../view/$path?error=$error");   
+        header("Location: ../view/$path?error=$error");
 ?>
