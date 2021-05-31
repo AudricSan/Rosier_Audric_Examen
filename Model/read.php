@@ -155,7 +155,7 @@
     function TakeAllInfoID($id){
         include('connection.php');   
         
-        $query = " SELECT Staff_ID, Staff_FirstName, Staff_Name, Staff_Mail , PostalCode_Number, PostalCode_Name, Locomotion_Name, WorkDepartment_Name, Activity_Name FROM staff LEFT OUTER JOIN postalcode ON staff_PCID = postalcode_ID LEFT OUTER JOIN locomotion ON staff_locomotionID = locomotion_ID LEFT OUTER JOIN WorkDepartment ON Staff_DepartmentID = WorkDepartment_ID LEFT OUTER JOIN staffactivity ON staff_id = StaffActivity_StaffID LEFT OUTER JOIN activity on StaffActivity_ActivityID = activity_id WHERE Staff_ID = :id";       
+        $query = " SELECT Staff_ID, Staff_FirstName, Staff_Name, Staff_Mail , PostalCode_Number, PostalCode_Name, Locomotion_Name, WorkDepartment_Name, Activity_Name FROM staff INNER JOIN postalcode ON staff_PCID = postalcode_ID INNER JOIN locomotion ON staff_locomotionID = locomotion_ID INNER JOIN WorkDepartment ON Staff_DepartmentID = WorkDepartment_ID INNER JOIN staffactivity ON staff_id = StaffActivity_StaffID INNER JOIN activity on StaffActivity_ActivityID = activity_id WHERE Staff_ID = :id";       
         $query_params = array(':id' => $id);            
         
         try{

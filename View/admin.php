@@ -4,6 +4,11 @@
     include('../Model/read.php');
     include('../Model/function.php');
 
+    /* View Error If isset */
+      if(isset($_GET["error"])){
+        echo "<p style=\"color: red; font-size: 20px;\">" . $_GET["error"] . "</p>";
+      }
+
   /* set error */
     $error = '';
     $path = 'index.php';
@@ -49,7 +54,8 @@
   </head>
 
   <body>
-    <h2> Generation du tableaux des utilisateurs </h2>
+    <h2> User </h2>
+    <p>all the staff members who signed up!</p>
     <table border = 1>
       <thead>
           <tr>
@@ -65,8 +71,8 @@
           <tr>
               <?php foreach ($sta as $key2 => $val): if($key2 != 'Staff_ID') { ?>
               <td> <?php echo $val; } ?></td> <?php endforeach; ?>
-              <td> <button type="submit"> <a href="updateUti?pk=<?php echo $sta['Staff_ID'];?>">ChangeMwa!</a></button></td>
-              <td> <button type="submit"> <a href="../controller/deleteUti?pk=<?php echo $sta['Staff_ID'];?>">Foutoncamp!</a></button></td>
+              <td> <button type="submit"> <a href="uppdateUser?Staff_ID=<?php echo $sta['Staff_ID'];?>">Update User</a></button></td>
+              <td> <button type="submit"> <a href="../controller/deleteUser?Staff_ID=<?php echo $sta['Staff_ID'];?>">Delete User</a></button></td>
           </tr>
         <?php } ?>
       </tbody>
