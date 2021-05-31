@@ -24,7 +24,7 @@
         return;
     }
 
-    function checkPassword ($pass, $hash){
+    function checkPassword($pass, $hash){
         if (password_verify($pass, $hash)) {
             return true;
         }
@@ -34,4 +34,20 @@
         }
     }
     
+    function checkifenoughplace(){
+        include('read.php');
+
+        $TAA = TakeAllActivity();
+
+        var_dump($TAA);
+
+
+
+
+
+
+
+
+
+    }
 ?>
