@@ -2,6 +2,7 @@
     /* Start Session and Include Read Files */
         session_start();
         include('../Model/delete.php');
+        include('../Model/read.php');
 
     /* set error */
     $error = '';
