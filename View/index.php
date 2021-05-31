@@ -17,10 +17,12 @@
 
   /* VAR DUMP FOR CHECK IF ALL QUERY TO DATABASE IS CORRECT */
   /* ALL IS ARRAY */
-    var_dump($postalCode[0]);
-    var_dump($locomotion[0]);
-    var_dump($workDepartement[0]);
-    var_dump($activity[0]);
+    /*
+      var_dump($postalCode[0]);
+      var_dump($locomotion[0]);
+      var_dump($workDepartement[0]);
+      var_dump($activity[0]);
+    */
 ?>
 
 <!DOCTYPE HTML>

@@ -20,14 +20,7 @@
     }
 
   /* Load All Data For TABLE */
-    $staffid = TakeAllStaffID();
     $staff = TakeAllStaff();
-
-    foreach ($staffid as $key => $value){
-      $valueInt = intval($value['Staff_ID']);
-      $TAII = TakeAllInfoID($valueInt);
-      var_dump($TAII);
-    }
 
 ?>
 
@@ -43,9 +36,9 @@
     <table border = 1>
       <thead>
           <tr>
-              <?php foreach ($TAII[0] as $key => $value) {
+              <?php foreach ($staff[0] as $key => $value) {
                 if($key != 'Staff_ID'){ ?>
-              <th><?php echo $key;}?></th>
+              <th><?php echo $key ;}?></th>
               <?php } ?>
               <th> Update </th>
               <th> Delete </th>
@@ -57,7 +50,7 @@
           <tr>
               <?php foreach ($sta as $key2 => $val):
                 if($key2 != 'Staff_ID'){ ?>
-                <td><?php echo $val; if($val = NULL){echo 'NULL';}}?></td>
+                <td><?php echo $val;}?></td>
               <?php endforeach; ?>
               <td> <button type="submit"> <a href="updateUti?pk=<?php echo $sta['Staff_ID'];?>">ChangeMwa!</a></button></td>
               <td> <button type="submit"> <a href="../controller/deleteUti?pk=<?php echo $sta['Staff_ID'];?>">Foutoncamp!</a></button></td>

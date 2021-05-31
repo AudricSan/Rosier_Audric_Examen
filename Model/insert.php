@@ -31,4 +31,20 @@
             die("Failed query : " . $ex -> getMessage());
         }
     }
+
+    function insertStaffActivity ($staffid, $activityid){
+        include("connection.php");
+        
+        $query = "INSERT INTO StaffActivity (StaffActivity_StaffID, StaffActivity_ActivityID) VALUES (:staffid, :activityid)";
+        $query_params = array(":staffid" => $staffid, ":activityid" => $activityid);
+        
+        try{
+            $stmt = $db -> prepare($query);
+            $result = $stmt -> execute($query_params);
+        }
+        
+        catch(PDOException $ex){
+            die("Failed query : " . $ex -> getMessage());
+        }
+    }
 ?>
