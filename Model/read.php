@@ -171,4 +171,23 @@
         
         return $result;
     }
+
+    function TakeActivityMaxID($id){
+        include('connection.php');
+        $query = "SELECT Activity_MaxNumber FROM activity WHERE activity_ID = :id";
+        $query_params = array(':id' => $id);            
+
+        try{
+            $stmt = $db->prepare($query);
+            $result = $stmt->execute($query_params);
+        }
+
+        catch(PDOException $ex){
+            die("Failed query : " . $ex->getMessage());
+        }
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $result;
+    }
 ?>
