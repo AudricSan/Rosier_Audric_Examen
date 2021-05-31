@@ -25,11 +25,20 @@
 
     foreach ($staffid as $key => $value){
       $valueInt = intval($value['Staff_ID']);
-      $TAII = TakeAllInfoID($valueInt);
-      var_dump($TAII);
+      $TAII[] = TakeAllInfoID($valueInt);
     }
 
+    foreach ($TAII as $tai ){
+      foreach ($tai as $ta){
+        /*TAKE ALL STAFF INFO - RENAMING VARIABLE*/
+        $TASI[] = $ta;
+      }
+    }
+    echo 'APRES COMPRESS';
+    var_dump($TASI);
 ?>
+
+
 
 <!DOCTYPE HTML>
 <html>
@@ -40,29 +49,26 @@
   </head>
 
   <body>
+    <h2> Generation du tableaux des utilisateurs </h2>
     <table border = 1>
       <thead>
           <tr>
-              <?php foreach ($TAII[0] as $key => $value) {
-                if($key != 'Staff_ID'){ ?>
-              <th><?php echo $key;}?></th>
-              <?php } ?>
+              <?php foreach ($TASI[0] as $key => $value) {if($key != 'Staff_ID'){ ?>
+              <th> <?php echo $key; } ?></th> <?php } ?>
               <th> Update </th>
               <th> Delete </th>
           </tr>
       </thead>
 
       <tbody>
-        <?php foreach ($staff as $sta) {?>
+        <?php foreach ($TASI as $sta) { ?>
           <tr>
-              <?php foreach ($sta as $key2 => $val):
-                if($key2 != 'Staff_ID'){ ?>
-                <td><?php echo $val; if($val = NULL){echo 'NULL';}}?></td>
-              <?php endforeach; ?>
+              <?php foreach ($sta as $key2 => $val): if($key2 != 'Staff_ID') { ?>
+              <td> <?php echo $val; } ?></td> <?php endforeach; ?>
               <td> <button type="submit"> <a href="updateUti?pk=<?php echo $sta['Staff_ID'];?>">ChangeMwa!</a></button></td>
               <td> <button type="submit"> <a href="../controller/deleteUti?pk=<?php echo $sta['Staff_ID'];?>">Foutoncamp!</a></button></td>
           </tr>
-        <?php }?>
+        <?php } ?>
       </tbody>
     </table>
   </body>
