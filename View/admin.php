@@ -39,8 +39,12 @@
         $TASI[] = $ta;
       }
     }
+
+  /* ECHO FOR TEST */
+    /*
     echo 'APRES COMPRESS';
     var_dump($TASI);
+    */
 ?>
 
 
@@ -54,7 +58,7 @@
   </head>
 
   <body>
-    <h2> User </h2>
+    <h1> User </h1>
     <p>all the staff members who signed up!</p>
     <table border = 1>
       <thead>
