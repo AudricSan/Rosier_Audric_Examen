@@ -84,7 +84,7 @@
     /* Definite $PATH */
         $path = 'admin.php';
 
-    /* Go to END to have only one "header location" */
+    /* Go to END to have only one "header location" */    
         end:
         header("Location: ../view/$path?error=$error");
 ?>

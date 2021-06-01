@@ -13,7 +13,7 @@
       $AdminId = $_SESSION['Admin_ID'];
 
       /* Check if you're connected or not */
-        if($AdminId = 0){
+        if($AdminId == 0){
           $error = 'NON CONNECTER EN AMDIN';
     
           end:

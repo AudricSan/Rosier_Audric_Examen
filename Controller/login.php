@@ -31,11 +31,9 @@
     
     /* Admin not EMPTY we Login as ADMIN */
         $location = 'ADMIN';
-        var_dump($TAI);
 
             /* redefining variables in DB */
                 $TAI = $TAI[0];
-                var_dump($TAI);
 
                 $DBID = $TAI['Admin_ID'];  
                 $DBlogin = $TAI['Admin_Login'];
@@ -55,38 +53,10 @@
 
     /* Go to USER to connect a USER */
         user:
-        echo $location;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        /* To connect a User */
 
     /* Go to END to have only one "header location" */
         end:
-        echo $location;
 
         header("Location: ../view/$path?error=$error");
 ?>
