@@ -5,6 +5,8 @@
         include('../Model/function.php');
         include('../Model/insert.php');
 
+        unset($_SESSION['Admin_ID']);
+
     /* set error */
         $error = '';
         $path = 'index.php';
@@ -90,13 +92,15 @@
     /* Add Activity Info in DB */
         insertStaffActivity($staffid, $activity);
 
+        /* Definite $PATH */
+            $path = 'user.php';
+            $_SESSION['User_Name'] = $name;
+
         /* Unset not use variable */
             unset($name);
             unset($activity);
             unset($staffid);
-
-        /* Definite $PATH */
-        $path = 'user.php';
+    
 
     /* Go to END to have only one "header location" */
         end:
