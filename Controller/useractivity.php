@@ -63,7 +63,7 @@
         var_dump($eating);
 
     /* Check if User Exist */
-        $TSI = TakeStaffInfo($name);
+        $TSI = TakeStaffInfoNAME($name);
 
         if (!empty($TSI)){
             $error= "User already Exist";
