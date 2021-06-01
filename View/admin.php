@@ -58,7 +58,8 @@
   </head>
 
   <body>
-    <h1> User </h1>
+    <h1> Admin Page </h1>
+    <h2> User List </h2>
     <p>all the staff members who signed up!</p>
     <table border = 1>
       <thead>
