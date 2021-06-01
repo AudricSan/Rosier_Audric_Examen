@@ -29,4 +29,11 @@ INNER JOIN activity on StaffActivity_ActivityID = activity_id
 WHERE Staff_ID = 1;
 
 DELETE FROM staff WHERE Staff_ID = 3;
+
 DELETE FROM staffactivity WHERE StaffActivity_StaffID = 3;
+
+UPDATE staff SET Staff_FirstName = 'Philippe' WHERE Staff_ID = 2;
+
+UPDATE staff SET (Staff_Name, Staff_FirstName, Staff_Mail, Staff_PCID, Staff_LocomotionID, Staff_DepartmentID, Staff_Eating) VALUES (:names, :fisrt, :mail, :pcid, :loco, :depa, :eat);
+
+UPDATE StaffActivity SET (StaffActivity_StaffID, StaffActivity_ActivityID) VALUES (:staffid, :activityid);

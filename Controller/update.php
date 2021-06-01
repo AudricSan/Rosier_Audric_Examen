@@ -66,37 +66,23 @@
     /* Check if User Exist */
         $TSI = TakeStaffInfoNAME($name);
 
-        if (!empty($TSI)){
-            $error= "User already Exist";
-            goto end;
+        foreach($TSI as $value){
+            $TSI = $value['Staff_ID'];
         }
 
-    /* insert User un DB */
-        insertStaff($name, $firstname, $mail, $postalcode, $locomotion, $department, $eating);
+    /* Alter Staff DB */  
+        alterStaff($name, $firstname, $mail, $postalcode, $locomotion, $department, $eating, $TSI);
 
-        /* Unset not use variable */
-            unset($firstname);
-            unset($mail);
-            unset($postalcode);
-            unset($locomotion);
-            unset($department);
-            unset($eating);
+    /* Alter Staff Activity */
+        alterStaffActivity($TSI, $activity);
 
-    /* Take The ID of User Just Add in DB */
-        $staffid = TakeStaffInfoNAME($name);    
-        $staffid = $staffid[0];
-        $staffid = $staffid['Staff_ID'];
+    /* Unset not use variable */
+        unset($name);
+        unset($activity);
+        unset($staffid);
 
-    /* Add Activity Info in DB */
-        insertStaffActivity($staffid, $activity);
-
-        /* Unset not use variable */
-            unset($name);
-            unset($activity);
-            unset($staffid);
-
-        /* Definite $PATH */
-        $path = 'user.php';
+    /* Definite $PATH */
+        $path = 'admin.php';
 
     /* Go to END to have only one "header location" */
         end:
