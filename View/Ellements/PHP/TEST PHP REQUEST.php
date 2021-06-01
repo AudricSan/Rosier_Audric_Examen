@@ -120,8 +120,7 @@
                     
                     return $result;
                 }
-
-            
+ 
                 function TakeAllStaffID(){
                     include('../../../Model/connection.php');
                     $query = "SELECT Staff_ID FROM staff ORDER BY staff_ID";
@@ -158,8 +157,7 @@
                     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);   
                     
                     return $result;
-                }
-                
+                }  
 
             /**/
             $staffid = TakeAllStaffID();
