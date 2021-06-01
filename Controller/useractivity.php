@@ -15,7 +15,17 @@
             goto end;
         }
 
-    /* redefining variables in post */  
+    /* redefining variables in post */
+
+        /* Change Eating Value */
+            if (!isset($_POST['eating'])){
+                $_POST['eating'] = 0;
+            }
+
+            else{
+                $_POST['eating'] = 1;
+            }
+
         $name = $_POST['name'];
         $firstname = $_POST['firstname'];
         $mail = $_POST['mail'];
@@ -24,33 +34,24 @@
         $department = $_POST['department'];
         $activity = $_POST['activity'];
         $eating = $_POST['eating'];
-        
-        /* Unset not use variable */
-           unset($_POST['name']);
-           unset($_POST['firstname']);
-           unset($_POST['mail']);
-           unset($_POST['postalcode']);
-           unset($_POST['locomotion']);
-           unset($_POST['department']);
-           unset($_POST['activity']);
-           unset($_POST['eating']);
 
-           unset($_POST);
+        /* Unset not use variable */
+        unset($_POST['name']);
+        unset($_POST['firstname']);
+        unset($_POST['mail']);
+        unset($_POST['postalcode']);
+        unset($_POST['locomotion']);
+        unset($_POST['department']);
+        unset($_POST['activity']);
+        unset($_POST['eating']);
+
+        unset($_POST);
 
     /* Change STRING to INT */
         $postalcode = intval($postalcode);
         $locomotion = intval($locomotion);
         $department = intval($department);
         $activity = intval($activity);
-
-    /* Change EATING variable to INT */
-        if($eating = 'on'){
-            $eating = 1;
-        }
-
-        else{
-            $eating = 0;
-        }
 
     /* var_dump ALL POST */
         var_dump($name);
@@ -61,7 +62,7 @@
         var_dump($department);
         var_dump($activity);
         var_dump($eating);
-
+    
     /* Check if User Exist */
         $TSI = TakeStaffInfoNAME($name);
 
@@ -69,7 +70,7 @@
             $error= "User already Exist";
             goto end;
         }
-    
+
     /* insert User un DB */
         insertStaff($name, $firstname, $mail, $postalcode, $locomotion, $department, $eating);
 
@@ -82,13 +83,12 @@
             unset($eating);
 
     /* Take The ID of User Just Add in DB */
-        $staffid = TakeStaffInfo($name);    
+        $staffid = TakeStaffInfoNAME($name);    
         $staffid = $staffid[0];
         $staffid = $staffid['Staff_ID'];
 
     /* Add Activity Info in DB */
         insertStaffActivity($staffid, $activity);
-
 
         /* Unset not use variable */
             unset($name);
