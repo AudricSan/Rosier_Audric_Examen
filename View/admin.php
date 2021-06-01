@@ -82,5 +82,7 @@
         <?php } ?>
       </tbody>
     </table>
+
+    <button><a href="index.php"> GO BACK INDEX </a></button>
   </body>
 </html>

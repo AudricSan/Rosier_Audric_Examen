@@ -52,8 +52,6 @@
           <tr>
               <?php foreach ($TASI[0] as $key => $value) {if($key != 'Staff_ID'){ ?>
               <th> <?php echo $key; } ?></th> <?php } ?>
-              <th> Update </th>
-              <th> Delete </th>
           </tr>
       </thead>
 
@@ -62,11 +60,11 @@
           <tr>
               <?php foreach ($sta as $key2 => $val): if($key2 != 'Staff_ID') { ?>
               <td> <?php echo $val; } ?></td> <?php endforeach; ?>
-              <td> <button type="submit"> <a href="uppdateUser?Staff_ID=<?php echo $sta['Staff_ID'];?>">Update User</a></button></td>
-              <td> <button type="submit"> <a href="../controller/deleteUser?Staff_ID=<?php echo $sta['Staff_ID'];?>">Delete User</a></button></td>
           </tr>
         <?php } ?>
       </tbody>
     </table>
+
+    <button><a href="index.php"> GO BACK INDEX </a></button>
   </body>
 </html>
