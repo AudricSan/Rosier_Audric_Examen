@@ -16,6 +16,14 @@
         }
 
     /* redefining variables in post */
+        $name = $_POST['name'];
+        $firstname = $_POST['firstname'];
+        $mail = $_POST['mail'];
+        $postalcode = $_POST['postalcode'];
+        $locomotion = $_POST['locomotion'];
+        $department = $_POST['department'];
+        $activity = $_POST['activity'];
+        $eating = $_POST['eating'];
 
         /* Change Eating Value */
             if (!isset($_POST['eating'])){
@@ -26,26 +34,17 @@
                 $_POST['eating'] = 1;
             }
 
-        $name = $_POST['name'];
-        $firstname = $_POST['firstname'];
-        $mail = $_POST['mail'];
-        $postalcode = $_POST['postalcode'];
-        $locomotion = $_POST['locomotion'];
-        $department = $_POST['department'];
-        $activity = $_POST['activity'];
-        $eating = $_POST['eating'];
-
         /* Unset not use variable */
-        unset($_POST['name']);
-        unset($_POST['firstname']);
-        unset($_POST['mail']);
-        unset($_POST['postalcode']);
-        unset($_POST['locomotion']);
-        unset($_POST['department']);
-        unset($_POST['activity']);
-        unset($_POST['eating']);
+            unset($_POST['name']);
+            unset($_POST['firstname']);
+            unset($_POST['mail']);
+            unset($_POST['postalcode']);
+            unset($_POST['locomotion']);
+            unset($_POST['department']);
+            unset($_POST['activity']);
+            unset($_POST['eating']);
 
-        unset($_POST);
+            unset($_POST);
 
     /* Change STRING to INT */
         $postalcode = intval($postalcode);

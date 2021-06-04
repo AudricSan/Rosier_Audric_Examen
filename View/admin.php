@@ -47,8 +47,6 @@
     */
 ?>
 
-
-
 <!DOCTYPE HTML>
 <html>
 

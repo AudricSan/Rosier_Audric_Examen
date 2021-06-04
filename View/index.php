@@ -12,7 +12,7 @@
   /* Load All Data For Forms */
     $postalCode = TakeAllPostalCode();
     $locomotion = TakeAllLocomotion();
-    $workDepartement = TakeAllWorkDepartement();
+    $workDepartement = TakeAllWorkDepartment();
     $activity = TakeAllActivity();
 
   /* VAR DUMP FOR CHECK IF ALL QUERY TO DATABASE IS CORRECT */

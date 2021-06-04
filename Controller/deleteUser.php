@@ -10,7 +10,7 @@
 
     /* Can you be Here ? */
       /* redefining variables in post */  
-      $AdminId = $_SESSION['Admin_ID'];
+        $AdminId = $_SESSION['Admin_ID'];
 
       /* Check if you're connected or not */
         if($AdminId = 0){

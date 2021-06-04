@@ -30,7 +30,7 @@
     /* Load All Data For Forms */
         $postalCode = TakeAllPostalCode();
         $locomotion = TakeAllLocomotion();
-        $workDepartement = TakeAllWorkDepartement();
+        $workDepartement = TakeAllWorkDepartment();
         $activity = TakeAllActivity();
 
     /* Redefine Variable User value for use */
