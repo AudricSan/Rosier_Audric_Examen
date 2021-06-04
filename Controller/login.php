@@ -57,6 +57,5 @@
 
     /* Go to END to have only one "header location" */
         end:
-
         header("Location: ../view/$path?error=$error");
 ?>
