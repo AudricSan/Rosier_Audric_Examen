@@ -41,10 +41,13 @@
     }
 
   /* ECHO FOR TEST */
-    /*
+  /*
+    echo 'AVANT COMPRESS';
+    var_dump($TAII);
+
     echo 'APRES COMPRESS';
     var_dump($TASI);
-    */
+  */
 ?>
 
 <!DOCTYPE HTML>
