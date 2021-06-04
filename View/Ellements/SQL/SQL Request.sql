@@ -6,7 +6,7 @@ SELECT * FROM postalcode;
 
 SELECT * FROM staff;
 
-SELECT * FROM staffacitivity;
+SELECT * FROM staffactivity;
 
 SELECT * FROM workdepartment;
 
