@@ -17,15 +17,6 @@
 
     /* redefining variables in post */
 
-        /* Change Eating Value */
-            if (!isset($_POST['eating'])){
-                $_POST['eating'] = 0;
-            }
-
-            else{
-                $_POST['eating'] = 1;
-            }
-
         $name = $_POST['name'];
         $firstname = $_POST['firstname'];
         $mail = $_POST['mail'];
@@ -34,6 +25,15 @@
         $department = $_POST['department'];
         $activity = $_POST['activity'];
         $eating = $_POST['eating'];
+
+        /* Change Eating Value */
+        if (!isset($_POST['eating'])){
+            $_POST['eating'] = 0;
+        }
+
+        else{
+            $_POST['eating'] = 1;
+        }
 
         /* Unset not use variable */
         unset($_POST['name']);
