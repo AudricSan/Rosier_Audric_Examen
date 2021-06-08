@@ -127,5 +127,7 @@
 
         <input type="submit" value="Update !">
       </form>
+
+      <button><a href="admin.php"> GO BACK ADMIN </a></button>
   </body>
 </html>
