@@ -233,7 +233,7 @@
     /* Function to take the number of participants by activity ID */
         function HowManyPoeples($id){
             include("connection.php");
-            $query = "SELECT COUNT(StaffActivity_StaffID) as countnb FROM StaffActivity INNER JOIN Activity ON StaffActivity_ActivityID = Activity_Id WHERE Activity_Id = :id GROUP BY StaffActivity_ActivityID";
+            $query = "SELECT COUNT(StaffActivity_StaffID) as CountNumber FROM StaffActivity INNER JOIN Activity ON StaffActivity_ActivityID = Activity_Id WHERE Activity_Id = :id GROUP BY StaffActivity_ActivityID";
             
             $query_params = array('id' => $id);
             
