@@ -99,9 +99,25 @@
         <p class="Activity">
           <label for="activity">Selected Activity : </label>
           <select id="activity" name="activity">
-                <?php foreach($activity as $value){?>
-                <option value="<?php echo $value['Activity_ID']; ?>"><?php echo $value['Activity_Name'];}?></option>
-          </select>
+            <?php foreach ($activity as $acti){
+                  
+              $MaxNumber = MaxPoeple($acti['Activity_ID']);
+              $CountNumber = HowManyPoeples($acti['Activity_ID']);
+
+              /* vardump for check value
+                var_dump($CountNumber);
+                var_dump($MaxNumber);
+              */
+              
+              if ($CountNumber['CountNumber']<$MaxNumber['Activity_MaxNumber']){ ?>
+                <option value="<?php $acti['Activity_ID']; ?> "> <?php echo $acti['Activity_Name']; }?> </option>
+
+              <?php
+              if (!isset($CountNumber['CountNumber'])){ ?>
+                <option value="<?php $acti['Activity_ID']; ?> "> <?php echo $acti['Activity_Name']; }?></option>
+            <?php } ?>
+            
+          </select>  
         </p>
 
         <p class="Eating">

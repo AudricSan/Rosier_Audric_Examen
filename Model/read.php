@@ -187,7 +187,7 @@
         }
     /**/
 
-    /*  Function to Take the Maximum Number about an Activity */
+    /* Function to Take the Maximum Number about an Activity */
         function TakeActivityMaxID($id){
             include('connection.php');
             $query = "SELECT Activity_MaxNumber FROM activity WHERE activity_ID = :id";
@@ -208,7 +208,7 @@
         }
     /**/
 
-    /*  Function to Take  Staff Member information by ID */
+    /* Function to Take  Staff Member information by ID */
         function TakeStaffInfoID($id){
             include('connection.php');   
             
@@ -227,6 +227,62 @@
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);   
             
             return $result;
+        }
+    /**/
+
+    /* Function to take the number of participants by activity ID */
+        function HowManyPoeples($id){
+            include("connection.php");
+            $query = "SELECT COUNT(StaffActivity_StaffID) as CountNumber FROM StaffActivity INNER JOIN Activity ON StaffActivity_ActivityID = Activity_Id WHERE Activity_Id = :id GROUP BY StaffActivity_ActivityID";
+            
+            $query_params = array('id' => $id);
+            
+            try{
+                $stmt = $db->prepare($query);
+                $result = $stmt->execute($query_params);
+            }
+            
+            catch(PDOException $ex){
+                die("Failed query : " . $ex->getMessage());
+            }
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+            if(isset($result[0])) {
+                return $result[0];
+            }
+            
+            else {
+                return $result;
+            }
+        }
+    /**/
+
+    /* function to take the number of participants Maximum pard activity ID */
+        function MaxPoeple($id){
+            include("connection.php");
+            $query = "SELECT Activity_MaxNumber FROM staffactivity INNER JOIN activity ON StaffActivity_ActivityID = Activity_ID WHERE StaffActivity_ActivityID LIKE :id GROUP BY StaffActivity_ActivityID;";
+            
+            $query_params = array('id' => $id);
+            
+            try{
+                $stmt = $db->prepare($query);
+                $result = $stmt->execute($query_params);
+            }
+            
+            catch(PDOException $ex){
+                die("Failed query : " . $ex->getMessage());
+            }
+            
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if(isset($result[0])) {
+                return $result[0];
+            }
+            
+            else {
+                return $result;
+            }
         }
     /**/
 ?>
