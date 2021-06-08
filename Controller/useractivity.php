@@ -28,12 +28,12 @@
         $eating = $_POST['eating'];
 
         /* Change Eating Value */
-            if (!isset($_POST['eating'])){
-                $_POST['eating'] = 0;
+            if (!isset($eating)){
+               $eating = 0;
             }
 
             else{
-                $_POST['eating'] = 1;
+                $eating = 1;
             }
 
         /* Unset not use variable */
@@ -55,7 +55,7 @@
         $activity = intval($activity);
 
     /* var_dump ALL POST */
-    /*
+    
         var_dump($name);
         var_dump($firstname);
         var_dump($mail);
@@ -64,7 +64,7 @@
         var_dump($department);
         var_dump($activity);
         var_dump($eating);
-    */
+    
     
     /* Check if User Exist */
         $TSI = TakeStaffInfoNAME($name);
@@ -73,7 +73,7 @@
             $error= "User already Exist";
             goto end;
         }
-
+        
     /* insert User un DB */
         insertStaff($name, $firstname, $mail, $postalcode, $locomotion, $department, $eating);
 
@@ -86,15 +86,21 @@
             unset($eating);
 
     /* Take The ID of User Just Add in DB */
-        $staffid = TakeStaffInfoNAME($name);    
+        $staffid = TakeStaffInfoNAME($name);
+        /*var_dump($staffid);*/
+
         $staffid = $staffid[0];
+        /*var_dump($staffid);*/
+
         $staffid = $staffid['Staff_ID'];
+        /*var_dump($staffid);*/
 
     /* Add Activity Info in DB */
         insertStaffActivity($staffid, $activity);
 
-        /* Definite $PATH */
-            $path = 'user.php';
+        /* Definite $PATH and error*/
+            $path = 'index.php';
+            $error = 'STAFF INSCRIT';
             $_SESSION['User_Name'] = $name;
 
         /* Unset not use variable */
@@ -102,7 +108,6 @@
             unset($activity);
             unset($staffid);
     
-
     /* Go to END to have only one "header location" */
         end:
         header("Location: ../view/$path?error=$error");
