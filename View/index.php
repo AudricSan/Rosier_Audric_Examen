@@ -58,7 +58,7 @@
           <label for="postalcode">Postal Code : </label>
           <select id="postalcode" name="postalcode">
               <?php foreach($postalCode as $value){?>
-                  <option value="<?php echo $value['PostalCode_ID']; ?>"><?php echo $value['PostalCode_Name'];?> (<?php echo $value['PostalCode_Number'];?>) <?php } ?></option>
+                  <option value="<?php echo $value['PostalCode_ID']; ?>"> <?php echo $value['PostalCode_Number'];?> (<?php echo $value['PostalCode_Name'];?>) <?php } ?></option>
           </select>
         </p>
 

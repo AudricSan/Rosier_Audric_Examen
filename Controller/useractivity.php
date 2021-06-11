@@ -28,12 +28,12 @@
         $eating = $_POST['eating'];
 
         /* Change Eating Value */
-            if (!isset($eating)){
-               $eating = 0;
+            if ($eating == NULL){
+                $eating = 'No';
             }
 
-            else{
-                $eating = 1;
+            if ($eating == 'on'){
+                $eating = 'Yes';
             }
 
         /* Unset not use variable */
