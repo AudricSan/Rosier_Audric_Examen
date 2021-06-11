@@ -53,6 +53,7 @@
         $activity = intval($activity);
 
     /* var_dump ALL POST */
+    /*
         var_dump($name);
         var_dump($firstname);
         var_dump($mail);
@@ -61,6 +62,7 @@
         var_dump($department);
         var_dump($activity);
         var_dump($eating);
+    */
     
     /* Check if User Exist */
         $TSI = TakeStaffInfoNAME($name);

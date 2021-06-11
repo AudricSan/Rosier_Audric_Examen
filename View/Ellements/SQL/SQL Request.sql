@@ -37,3 +37,7 @@ UPDATE staff SET Staff_FirstName = 'Philippe' WHERE Staff_ID = 2;
 UPDATE staff SET (Staff_Name, Staff_FirstName, Staff_Mail, Staff_PCID, Staff_LocomotionID, Staff_DepartmentID, Staff_Eating) VALUES (:names, :fisrt, :mail, :pcid, :loco, :depa, :eat);
 
 UPDATE StaffActivity SET (StaffActivity_StaffID, StaffActivity_ActivityID) VALUES (:staffid, :activityid);
+
+SELECT COUNT(StaffActivity_StaffID) as countnb FROM StaffActivity INNER JOIN Activity ON StaffActivity_ActivityID = Activity_Id WHERE Activity_Id = 2 GROUP BY StaffActivity_ActivityID;
+
+SELECT Activity_MaxNumber FROM staffactivity INNER JOIN activity ON StaffActivity_ActivityID = Activity_ID WHERE StaffActivity_ActivityID LIKE 2 GROUP BY StaffActivity_ActivityID
