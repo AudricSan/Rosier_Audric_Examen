@@ -43,7 +43,7 @@
     /* Function to Take all data about PostalCode */
         function TakeAllPostalCode(){
             include('connection.php');
-            $query = "SELECT * FROM postalcode ORDER BY postalcode_Name";
+            $query = "SELECT * FROM postalcode ORDER BY postalcode_ID";
 
             try{
                 $stmt = $db->prepare($query);
